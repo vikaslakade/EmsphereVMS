@@ -1,5 +1,6 @@
 package com.example.seedcommando_6.emspherevms;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -36,4 +37,22 @@ public class ConnectionCheck
         }
         return false;
     }
+
+    public static  boolean  isNetworkAvailable(Context cox)
+    {
+        boolean haveConnectedWifi = false;
+        boolean haveConnectedMobile = false;
+        ConnectivityManager cm = (ConnectivityManager) cox.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+        for (NetworkInfo ni : netInfo) {
+            if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+                if (ni.isConnected())
+                    haveConnectedWifi = true;
+            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                if (ni.isConnected())
+                    haveConnectedMobile = true;
+        }
+        return haveConnectedWifi || haveConnectedMobile;
+    }
+
 }

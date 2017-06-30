@@ -8,6 +8,56 @@ import java.io.Serializable;
 
 public class Fields implements Serializable {
     private String fname ,Lastname,image ,mobile ,EmailId ,visittype,Idcardtype ,Idcardnumber,Address ,Representing ,Remark,Visitpurpose ,persontomeet ,time ,duration ,Area ,material1  ,serialNo1,material2,serialNo2 ;
+    Long VisitTypes;
+
+    public Long getVisitpupose() {
+        return visitpupose;
+    }
+
+    public void setVisitpupose(Long visitpupose) {
+        this.visitpupose = visitpupose;
+    }
+
+    Long visitpupose;
+    Long area1;
+    Long personmeet;
+
+
+
+
+    public Long getArea1() {
+        return area1;
+    }
+   /* public Long getVisitpurpose() {
+        return visitpurpose;
+    }*/
+
+
+    public void setArea1(Long area1) {
+        this.area1 = area1;
+    }
+
+    public Long getPersonmeet() {
+        return personmeet;
+    }
+
+    public void setPersonmeet(Long personmeet) {
+        this.personmeet = personmeet;
+    }
+
+
+
+
+
+
+    public Long getVisitTypes() {
+        return VisitTypes;
+    }
+
+    public void setVisitTypes(Long visitTypes) {
+        VisitTypes = visitTypes;
+    }
+
 
     public String getFirstname() {
         return fname;

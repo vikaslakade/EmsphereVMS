@@ -16,6 +16,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,11 +30,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -44,8 +47,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class SearchExistingVisitor extends AppCompatActivity {
     //public static final String URL_GET_ALL = "http://125.99.68.24/mywebservices/WebService/GetFeeds";
-
-    public static final String URL_GET_ALL = "http://14.141.60.217/wbs/WebService/GetFeeds";
+    public static   final String URL_GET_ALL = "http://seedmanagement.cloudapp.net/VMS_Mobile_Service/RegisteredVisitorDetails.ashx";
+   // public static final String URL_GET_ALL = "http://14.141.60.217/wbs/WebService/GetFeeds";
     // public static final String URL_GET_ALL = "http://172.16.50.10:8080/mywebservices/WebService/GetFeeds";
     EditText mobileno1,firstname;
     ImageView imagev;
@@ -53,15 +56,19 @@ public class SearchExistingVisitor extends AppCompatActivity {
     Button addlist, search;
     ProgressDialog pd;
     String mobino1,nme;
-    HttpHandler sh = null;
+
     String name_f, mno, img;
+    HttpHandler sh = null;
     String jsonStr;
     Fields fields1;
     Bundle b;
     HashMap<String,Object> hm1;
-    JSONObject jsonObject;
+
     JSONObject  jsonObject1;
     Toolbar toolbar;
+    String urlParameters;
+    String res_status=null;
+    boolean connectionServer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,8 +126,13 @@ public class SearchExistingVisitor extends AppCompatActivity {
        // System.out.println("@@@@@@####on click data@@@@@@#######"+mobino);
         if (!nme.isEmpty()) {
             if (mobino1.length() == 10) {
-                new MyJsonTask().execute(mobino1);
+              if(ConnectionCheck.isNetworkAvailable(getApplicationContext())) {
+                  new MyJsonTask().execute();
+                }else {
+                    Toast.makeText(getApplicationContext(),"No internet connection.your device is not connected to internet",Toast.LENGTH_LONG).show();
+                }
                 //addlist.setEnabled(true);
+
             } else {
                 mobileno1.requestFocus();
                 mobileno1.setError("Please Enter valid number");
@@ -140,79 +152,118 @@ public class SearchExistingVisitor extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pd = new ProgressDialog(SearchExistingVisitor.this);
+
+            pd = new ProgressDialog(getApplicationContext());
+            pd.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
             pd.setMessage("Please wait");
             pd.setCancelable(false);
+
             pd.show();
         }
+
         @Override
         protected String doInBackground(String... params) {
-            HttpURLConnection conn;
-           // String response = null;
-            String jsonStr;
+            JSONObject jsonObject = new JSONObject();
+          /* try {
+               urlParameters =
+                       "fname=" + URLEncoder.encode(nme, "UTF-8") +
+                               "&mobile=" + URLEncoder.encode(mobino1, "UTF-8")+ "&all_visitors_flag=" + URLEncoder.encode("0", "UTF-8");
+
+           } catch (Exception e) {
+               e.printStackTrace();
+           }*/
+
             try {
-                int timeout=15000;
-                boolean connection=ConnectionCheck.isConnectedToServer(URL_GET_ALL,timeout);
+                String jsonStr;
+
+                URL url;
+                HttpURLConnection connection = null;
+                int timeout = 15000;
+                connectionServer = ConnectionCheck.isConnectedToServer(URL_GET_ALL, timeout);
                 // System.out.println("response code"+conn.getResponseCode());
-                Log.d("connection@@#@@@@",""+connection);
-               // ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-               // boolean networkAvailable=ConnectionCheck.isNetworkAvailable(cm);
-                if(connection !=false) {
-                    URL url = new URL(URL_GET_ALL); // here is your URL path
-                    conn = (HttpURLConnection) url.openConnection();
-                    conn.setReadTimeout(15000 /* milliseconds */);
-                    conn.setConnectTimeout(15000 /* milliseconds */);
-                    conn.setRequestMethod("POST");
-                    conn.setDoInput(true);
-                    conn.setDoOutput(true);
-                    conn.setRequestProperty("Accept", "application/json");
-                    conn.setRequestProperty("Content-Type", "application/json");
-                    conn.connect();
-
+                if (connectionServer) {
                     try {
+                        //Create connection
+                        //  final String URL_GET_ALL = "http://seedmanagement.cloudapp.net/VMS_Mobile_Service/RegisteredVisitorDetails.ashx";
+                       url = new URL(URL_GET_ALL);
+                       connection = (HttpURLConnection) url.openConnection();
+                       connection.setRequestMethod("POST");
+                        connection.setRequestProperty("Accept", "application/json");
+                        connection.setRequestProperty("Content-Type", "application/json");
+                       connection.setRequestProperty("Content-Language", "en-US");
 
+                       connection.setUseCaches(false);
+                       connection.setDoInput(true);
+                       connection.setDoOutput(true);
                         JSONObject postDataParams = new JSONObject();
-                        //postDataParams.put("name", d.getFirstname());
-                        postDataParams.put("mobile", mobino1);
                         postDataParams.put("fname", nme);
+                        postDataParams.put("mobile", mobino1);
+                        postDataParams.put("all_visitors_flag", "0");
                         Log.e("params", postDataParams.toString());
-                        OutputStream os = conn.getOutputStream();
+
+                        //Send request
+                       DataOutputStream wr = new DataOutputStream(
+                               connection.getOutputStream());
+                       wr.writeBytes(postDataParams.toString());
+                       wr.flush();
+                       wr.close();
+                       /* url = new URL(URL_GET_ALL);
+
+                        // URL url = new URL("http://172.16.50.10:8080/mywebservices/WebService/add"); // here is your URL path
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        conn.setReadTimeout(15000 *//* milliseconds *//*);
+                        conn.setConnectTimeout(15000 *//* milliseconds *//*);
+                        conn.setRequestMethod("POST");
+                        conn.setDoInput(true);
+                        conn.setDoOutput(true);
+                        conn.setRequestProperty("Accept", "application/json");
+                        conn.setRequestProperty("Content-Type", "application/json");
+                        conn.connect();*/
+
+
+
+
+                        /*OutputStream os = conn.getOutputStream();
                         BufferedWriter writer = new BufferedWriter(
                                 new OutputStreamWriter(os, "UTF-8"));
+                        //writer.write(getPostDataString(postDataParams));
+                        //os.write(postDataParams.getByt);
                         writer.write(postDataParams.toString());
-                        System.out.println("Writer data" + writer);
+                        Log.e("Write", writer.toString());
+
                         writer.flush();
                         writer.close();
-                        os.close();
-                        int responseCode = conn.getResponseCode();
+                        os.close();*/
+
+                        int responseCode = connection.getResponseCode();
                         if (responseCode == HttpsURLConnection.HTTP_OK) {
                             sh = new HttpHandler();
-                            jsonStr = sh.makeServiceCall(conn);
+                            jsonStr = sh.makeServiceCall(connection);
                             System.out.println(jsonStr);
-                            //System.out.println("@@@@@##########"+conn.getResponseCode());
-                            if (!jsonStr.isEmpty()) {
-                                try {
-                                    // JSONObject jsonObj = new JSONObject(jsonStr);
-                                    JSONArray jsonArray = new JSONArray(jsonStr);
-                                    // System.out.println(jsonArray);
-                                    if (!jsonArray.isNull(0)) {
-                                        try {
-                                            //System.out.println(jsonArray);
-                                            for (int i = 0; i < jsonArray.length(); i++) {
-                                                jsonObject = jsonArray.getJSONObject(i);
-                                                //System.out.println("sddddd"+jsonObject);
-                                            }
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
+                            System.out.println("@@@@@##########" + connection.getResponseCode());
+                            try {
+                                JSONObject jsonObj = new JSONObject(jsonStr);
+                                res_status = jsonObj.getString("response_status");
+                                JSONArray jsonArray = jsonObj.getJSONArray("visitor_list");
+                                System.out.println("dgjsdfsdggggggh" + jsonArray);
+                                if (res_status.equals("success")) {
+                                    try {
+                                        //System.out.println(jsonArray);
+                                        for (int i = 0; i < jsonArray.length(); i++) {
+                                            jsonObject = jsonArray.getJSONObject(i);
+                                            System.out.println("sddddd" + jsonObject);
                                         }
-                                    } else {
-                                        // System.out.println("toast called"+jsonArray);
-                                        Toast.makeText(SearchExistingVisitor.this, "Visitor not found", Toast.LENGTH_LONG).show();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
+                                } else {
+                                    jsonObject = new JSONObject();
+                                    jsonObject.put("g", "gvbjhvh");
+                                    // System.out.println("toast called"+jsonArray);
+                                    //Toast.makeText(SearchExistingVisitor.this, "Visitor not found", Toast.LENGTH_LONG).show();
                                 }
-
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
 
                         } else {
@@ -221,34 +272,32 @@ public class SearchExistingVisitor extends AppCompatActivity {
                         }
 
                     } catch (IOException e) {
-                        System.out.println("////// called" + conn.getResponseCode());
+                        System.out.println("////// called" + connection.getResponseCode());
                         e.printStackTrace();
                     }
-                }else {
-                    return "false";
+                } else {
+                    Toast toast = Toast.makeText(SearchExistingVisitor.this, "server not Running,Please try after some time", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
                 }
+
             } catch (Exception e) {
                 return new String("null");
             }
-                return jsonObject.toString();
+            return jsonObject.toString();
 
-    }
+        }
+
         @Override
-        protected void onPostExecute (String result) {
-
+        protected void onPostExecute(String result) {
             super.onPostExecute(result);
             if (pd.isShowing()) {
                 pd.dismiss();
             }
-            if (!result.equalsIgnoreCase("false")) {
-                if (!result.equalsIgnoreCase("null")) {
+            if (connectionServer) {
+                if (res_status.equalsIgnoreCase("success")) {
                     try {
                         if (!result.isEmpty()) {
-                       /* addlist.setVisibility(View.VISIBLE);
-                        name.setVisibility(View.VISIBLE);
-                        imagev.setVisibility(View.VISIBLE);
-                        imagev.setVisibility(View.VISIBLE);
-                        mobno.setVisibility(View.VISIBLE);*/
 
                             System.out.println("jhftythjhjhhh@#$$%%%^^&&" + result);
                             jsonObject1 = new JSONObject(result);
@@ -296,14 +345,13 @@ public class SearchExistingVisitor extends AppCompatActivity {
                 toast.show();
             }
         }
+        }
 
-    }
-    public  void searchgetdata()
-    {
+    public  void searchgetdata() {
         try {
-            fields1 =new Fields();
+            fields1 = new Fields();
             fields1.setFirstname(jsonObject1.getString("fname"));
-           // System.out.println("my name /////"+fields1.getFirstname());
+            // System.out.println("my name /////"+fields1.getFirstname());
             fields1.setLastname(jsonObject1.getString("Lastname"));
             fields1.setMobile(jsonObject1.getString("mobile"));
             fields1.setEmailId(jsonObject1.getString("EmailId"));
@@ -315,34 +363,21 @@ public class SearchExistingVisitor extends AppCompatActivity {
             fields1.setVisittype(jsonObject1.getString("Representing"));
             fields1.setImage(jsonObject1.getString("image"));
             // Toast.makeText(this," next",Toast.LENGTH_LONG).show();
-            hm1=new HashMap<String,Object>();
+            String visitorregistrationid = jsonObject1.getString("VisitorRegistrationId");
+            hm1 = new HashMap<String, Object>();
             hm1.put("data", fields1);
-
+            hm1.put("Id", visitorregistrationid);
             //Bundle object is created
             b = new Bundle();
             b.putSerializable("bundleobj", hm1);
-           // b.putSerializable("bundleobj", hm1);
-        }
-        catch (Exception e)
-        {
+            // b.putSerializable("bundleobj", hm1);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-  /*  public void goVisitorEntry(View v) {
 
-        try {
-                searchgetdata();
-                Intent intentsearch = new Intent(getApplicationContext(), SearchVisitor_details.class);
-                intentsearch.putExtras(b);
-                startActivity(intentsearch);
+    }}
 
-            } catch (Exception e) {
-                e.printStackTrace();
-        }
 
-    }*/
-
-    }
 
 
 

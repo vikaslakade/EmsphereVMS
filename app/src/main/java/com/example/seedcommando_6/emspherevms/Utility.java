@@ -38,6 +38,6 @@ public class Utility
         return txt!=null && txt.trim().length()>0 ? true: false;
     }
     public static boolean spinnervalid(String txt){
-        return txt!="please select visittype" && txt!="please select ID"? true: false;
+        return txt!="please select visittype" && txt!="please select ID" &&txt!="Select Area" &&txt!="Select visit purpose" &&txt!="Person to Meet"? true: false;
     }
 }
