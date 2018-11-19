@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.emsphere.commando.emspherevms.VisitorRegistration"
+   >
+    <android.support.v7.widget.Toolbar
+        app:titleTextColor="@color/black"
+        android:title="Visitor Registration"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/grey"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_visitreg" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visitor Registration"
+            android:layout_gravity="center"
+            android:textColor="@color/toolbar"
+            android:textSize="24sp"/>
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_inner_bg"
+        >
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+            android:padding="3dp"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:weightSum="30">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/camera"
+                android:layout_weight="30"
+                android:layout_gravity="center"
+
+                android:id="@+id/imageView_reg"
+
+               />
+              </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="70"
+
+                    android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:weightSum="70">
+
+                    <TextView
+                        android:text="First Name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/normal_textsize"
+                        android:fontFamily="@string/font_family"
+                        android:layout_weight="35"
+                        android:gravity="center"
+                        android:id="@+id/textView_name"
+
+
+                        />
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:background="@drawable/edittextborder"
+                        android:layout_weight="35"
+                        android:paddingLeft="12dp"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:textSize="@dimen/normal_textsize"
+                        android:id="@+id/editText_name"
+
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:weightSum="70">
+                    <TextView
+                        android:text="Last Name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/normal_textsize"
+                        android:id="@+id/textView_lname"
+                        android:gravity="center"
+                        android:layout_weight="35"
+                        />
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:layout_weight="35"
+                        android:background="@drawable/edittextborder"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:id="@+id/editText_lname"
+                        android:textSize="@dimen/normal_textsize"
+                        android:paddingLeft="@dimen/start_text"
+
+                        />
+                </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:weightSum="100">
+                        <TextView
+                            android:text="Mobile Number"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:textSize="@dimen/normal_textsize"
+                            android:id="@+id/textView_mobileno"
+                            android:layout_weight="40"
+
+                            />
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:textSize="@dimen/normal_textsize"
+                        android:paddingLeft="@dimen/start_text"
+                        android:layout_weight="60"
+                        android:background="@drawable/edittextborder"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:id="@+id/editText_mobileno"
+                        />
+                    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:weightSum="100">
+                <TextView
+                    android:text="Visit Type"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40"
+
+                    android:textSize="@dimen/normal_textsize"
+                    android:id="@+id/textView_visittype"
+
+                    />
+
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="60"
+                    android:background="@drawable/edittextborder"
+                    android:id="@+id/editText_visittype"
+
+                    />
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:weightSum="100">
+            <TextView
+                android:text="Email ID"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+
+                android:textSize="@dimen/normal_textsize"
+                android:id="@+id/textView_emailid"
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="60"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:paddingLeft="@dimen/start_text"
+                android:textSize="@dimen/normal_textsize"
+                android:textCursorDrawable="@drawable/cursor_red"
+                android:background="@drawable/edittextborder"
+                android:id="@+id/editText_emailid"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:weightSum="100">
+            <TextView
+                android:text="ID Card Type"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+
+                android:textSize="@dimen/normal_textsize"
+                android:id="@+id/textView_idcardtype"
+                />
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="60"
+                android:background="@drawable/edittextborder"
+                android:id="@+id/editText_idcardtype"
+                android:spinnerMode="dropdown"
+                />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+               android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:weightSum="100">
+                <TextView
+                    android:text="ID Card Number"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40"
+                    android:id="@+id/textView_idcardnumber"
+                    android:textSize="@dimen/normal_textsize"
+                    />
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="60"
+                    android:background="@drawable/edittextborder"
+                    android:inputType="text"
+                    android:textCursorDrawable="@drawable/cursor_red"
+                    android:paddingLeft="@dimen/start_text"
+                    android:ems="10"
+                    android:textSize="@dimen/normal_textsize"
+                    android:id="@+id/editText_idcardnumber"  />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                android:layout_height="40dp"
+                    android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                    android:weightSum="100">
+                    <TextView
+                        android:text="Address"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView_address"
+                        android:layout_weight="40"
+                        android:textSize="@dimen/normal_textsize"
+                        />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:inputType="textPostalAddress"
+                        android:ems="10"
+                        android:textSize="@dimen/normal_textsize"
+                        android:background="@drawable/edittextborder"
+                        android:layout_weight="60"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:paddingLeft="@dimen/start_text"
+                        android:id="@+id/editText1_address"/>
+
+                </LinearLayout>
+
+               <LinearLayout
+                android:layout_width="match_parent"
+                   android:layout_height="40dp"
+                   android:layout_marginTop="10dp"
+                android:weightSum="100">
+                <TextView
+                    android:text="Representing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40"
+                    android:textSize="@dimen/normal_textsize"
+                    android:id="@+id/textView_representing"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:layout_weight="60"
+                    android:textSize="@dimen/normal_textsize"
+                    android:paddingLeft="@dimen/start_text"
+                    android:textCursorDrawable="@drawable/cursor_red"
+                    android:background="@drawable/edittextborder"
+                    android:id="@+id/editTextreprenting"
+
+                    />
+
+
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="100">
+                    <TextView
+                        android:text="Remark"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView_remark"
+                        android:layout_weight="40"
+                        android:textSize="@dimen/normal_textsize"
+
+                        />
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:layout_weight="60"
+                        android:textSize="@dimen/normal_textsize"
+                        android:paddingLeft="@dimen/start_text"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/editText_remark"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        />
+                </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                   >
+                    <Button
+                        android:text="Next"
+                        android:layout_width="300dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/button_next"
+                        android:background="@drawable/btn_addlist_round"
+                        android:gravity="center"
+                        android:onClick="passdata"
+                        android:textSize="24dp"
+                       android:layout_marginBottom="4dp"
+                        android:textColor="@color/txtcolor_search" />
+
+                </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!--<android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_visitreg"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Visitor Registration"
+           android:layout_gravity="center"
+           android:textColor="@color/toolbar"
+           android:textSize="30dp"/>
+
+
+    </android.support.v7.widget.Toolbar>-->
+
+
+</LinearLayout>

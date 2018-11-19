@@ -9,5 +9,9 @@
     <dimen name="start_text">12dp</dimen>
     <dimen name="edit_size">24dp</dimen>
     <dimen name="XX_text_size">30dp</dimen>
+    <dimen name="normal_textsize">16sp</dimen>
+    <dimen name="medium_textsize">14sp</dimen>
+    <dimen name="small_textsize">14sp</dimen>
+    <dimen name="badge_text_size">10dp</dimen>
 
 </resources>

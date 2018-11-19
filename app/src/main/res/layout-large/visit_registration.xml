@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.seedcommando_6.emspherevms.VisitorRegistration"
+    tools:context="com.emsphere.commando.emspherevms.VisitorRegistration"
     android:weightSum="1">
     <android.support.v7.widget.Toolbar
         app:titleTextColor="@color/black"
@@ -26,19 +26,19 @@
             android:text="Visitor Registration"
             android:layout_gravity="center"
             android:textColor="@color/toolbar"
-            android:textSize="30sp"/>
+            android:textSize="24sp"/>
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/app_inner_bg"
         >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1200dp"
-        android:background="#81ffffff"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linear"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
@@ -49,7 +49,7 @@
 
 
        <!-- <EditText
-            android:layout_width="280dp"
+            android:layout_width="280dp"#81ffffff
             android:layout_height="60dp"
             android:inputType="textPostalAddress"
             android:ems="10"
@@ -147,6 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
             android:textSize="@dimen/search_textsize"
+            android:paddingLeft="16sp"
             android:id="@+id/textView_representing"
             android:layout_below="@+id/editText_idcardnumber"
             android:layout_alignLeft="@+id/textView_idcardnumber"
@@ -158,37 +159,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView_remark"
             android:textSize="@dimen/search_textsize"
+            android:paddingLeft="16sp"
             android:layout_marginTop="120dp"
             android:layout_below="@+id/editTextreprenting"
             android:layout_alignLeft="@+id/textView_representing"
             android:layout_alignStart="@+id/textView_representing" />
 
-
-        <TextView
-            android:text="Email ID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/search_textsize"
-            android:id="@+id/textView_emailid"
-            android:layout_below="@+id/editText_visittype"
-            android:layout_alignLeft="@+id/textView_visittype"
-            android:layout_alignStart="@+id/textView_visittype"
-            android:layout_marginTop="42dp" />
-
-        <EditText
-            android:layout_width="280dp"
-            android:layout_height="40dp"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:textCursorDrawable="@drawable/cursor_red"
-            android:textSize="@dimen/search_textsize"
-            android:paddingLeft="@dimen/start_text"
-            android:layout_marginTop="-10dp"
-            android:background="@drawable/edittextborder"
-            android:layout_alignTop="@+id/textView_emailid"
-            android:layout_alignLeft="@+id/editText_visittype"
-            android:layout_alignStart="@+id/editText_visittype"
-            android:id="@+id/editText_emailid" />
 
         <TextView
             android:text="ID Card Type"
@@ -217,7 +193,7 @@
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:background="@drawable/edittextborder"
-            android:inputType="number"
+            android:inputType="text"
             android:ems="10"
             android:textCursorDrawable="@drawable/cursor_red"
             android:textSize="@dimen/search_textsize"
@@ -234,6 +210,7 @@
             android:id="@+id/textView_address"
             android:layout_marginTop="37dp"
             android:textSize="@dimen/search_textsize"
+            android:paddingLeft="16sp"
             android:layout_below="@+id/textView_representing"
             android:layout_alignLeft="@+id/textView_representing"
             android:layout_alignStart="@+id/textView_representing" />
@@ -265,23 +242,6 @@
             android:layout_alignLeft="@+id/editText_name"
             android:layout_alignStart="@+id/editText_name" />
 
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:inputType="textPersonName"
-            android:background="@drawable/edittextborder"
-            android:ems="10"
-
-            android:textCursorDrawable="@drawable/cursor_red"
-            android:textSize="@dimen/search_textsize"
-            android:paddingLeft="@dimen/start_text"
-            android:id="@+id/editText_name"
-            android:layout_alignBottom="@+id/textView_name"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="33dp"
-            android:layout_marginEnd="33dp" />
-
         <TextView
             android:text="Last Name"
             android:layout_width="wrap_content"
@@ -308,17 +268,6 @@
             android:layout_alignLeft="@+id/textView_lname"
             android:layout_alignStart="@+id/textView_lname" />
 
-        <TextView
-            android:text="Mobile Number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/search_textsize"
-            android:id="@+id/textView_mobileno"
-            android:layout_below="@+id/imageView_reg"
-            android:layout_toLeftOf="@+id/textView_lname"
-            android:layout_toStartOf="@+id/textView_lname"
-            android:layout_marginTop="25dp" />
-
         <Button
             android:text="Next"
             android:layout_width="450dp"
@@ -330,12 +279,13 @@
             android:textSize="30dp"
             android:textColor="@color/txtcolor_search"
             android:layout_below="@+id/editText_remark"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="26dp"/>
 
         <Spinner
             android:layout_width="280dp"
             android:layout_height="40dp"
-            android:spinnerMode="dropdown"
+
             android:background="@drawable/edittextborder"
             android:id="@+id/editText_visittype"
             android:layout_marginTop="-4dp"
@@ -346,8 +296,7 @@
         <EditText
             android:layout_width="280dp"
             android:layout_height="40dp"
-            android:inputType="phone"
-            android:ems="10"
+            android:inputType="number"
             android:textCursorDrawable="@drawable/cursor_red"
             android:textSize="@dimen/search_textsize"
             android:paddingLeft="@dimen/start_text"
@@ -356,6 +305,34 @@
             android:layout_alignTop="@+id/textView_mobileno"
             android:layout_alignRight="@+id/editText_lname"
             android:layout_alignEnd="@+id/editText_lname" />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:inputType="textPersonName"
+            android:background="@drawable/edittextborder"
+            android:ems="10"
+
+            android:textCursorDrawable="@drawable/cursor_red"
+            android:textSize="@dimen/search_textsize"
+            android:paddingLeft="@dimen/start_text"
+            android:id="@+id/editText_name"
+            android:layout_marginRight="21dp"
+            android:layout_marginEnd="21dp"
+            android:layout_alignBottom="@+id/textView_name"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="Mobile Number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/search_textsize"
+            android:id="@+id/textView_mobileno"
+            android:layout_marginTop="37dp"
+            android:layout_below="@+id/imageView_reg"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <ImageView
             android:layout_width="120dp"
@@ -366,11 +343,37 @@
 
             android:layout_gravity="center"
 
-             android:layout_marginTop="30dp"
-             android:id="@+id/imageView_reg"
+            android:id="@+id/imageView_reg"
+            android:layout_marginTop="26dp"
             android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/textView_idcardtype"
-            android:layout_alignEnd="@+id/textView_idcardtype" />
+            android:layout_alignLeft="@+id/textView_visittype"
+            android:layout_alignStart="@+id/textView_visittype" />
+
+        <TextView
+            android:text="Email ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/search_textsize"
+            android:paddingLeft="16sp"
+            android:id="@+id/textView_emailid"
+            android:layout_marginTop="31dp"
+            android:layout_below="@+id/editText_visittype"
+            android:layout_alignLeft="@+id/textView_visittype"
+            android:layout_alignStart="@+id/textView_visittype" />
+
+        <EditText
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:textCursorDrawable="@drawable/cursor_red"
+            android:textSize="@dimen/search_textsize"
+            android:paddingLeft="@dimen/start_text"
+            android:background="@drawable/edittextborder"
+            android:id="@+id/editText_emailid"
+            android:layout_alignTop="@+id/textView_emailid"
+            android:layout_alignLeft="@+id/editText_visittype"
+            android:layout_alignStart="@+id/editText_visittype" />
 
 
     </RelativeLayout>

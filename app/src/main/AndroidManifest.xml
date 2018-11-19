@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.seedcommando_6.emspherevms">
+    package="com.emsphere.commando.emspherevms">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <supports-screens
         android:smallScreens="true"
         android:normalScreens="true"
@@ -12,42 +13,73 @@
         />
 
     <application
+        android:name=".ViewDialog"
         android:allowBackup="true"
-        android:icon="@mipmap/images"
+        android:icon="@mipmap/iconvms"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity android:name="com.emsphere.commando.emspherevms.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Home"
+        <activity android:name="com.emsphere.commando.emspherevms.Home_activity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".Login"
+            android:parentActivityName="com.emsphere.commando.emspherevms.HomeActivity"
             android:label=" "/>
-        <activity android:name=".Login"
+        <activity android:name="com.emsphere.commando.emspherevms.Login"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".SearchExistingVisitor"
+        <activity android:name="com.emsphere.commando.emspherevms.SearchExistingVisitor"
             android:screenOrientation="portrait"
-            android:parentActivityName=".Home"
+            android:parentActivityName="com.emsphere.commando.emspherevms.Home_activity"
             android:label=" "/>
-        <activity android:name=".VisitorRegistration"
+        <activity android:name="com.emsphere.commando.emspherevms.VisitorRegistration"
             android:screenOrientation="portrait"
-            android:parentActivityName=".Home"
+            android:parentActivityName="com.emsphere.commando.emspherevms.Home_activity"
             android:label=" "/>
-        <activity android:name=".VisitorEntry"
+        <activity android:name="com.emsphere.commando.emspherevms.VisitorEntry"
             android:screenOrientation="portrait"
-            android:parentActivityName=".VisitorRegistration"
+            android:parentActivityName="com.emsphere.commando.emspherevms.VisitorRegistration"
             android:label=" "/>
-        <activity android:name=".SearchVisitor_details"
+        <activity android:name="com.emsphere.commando.emspherevms.SearchVisitor_details"
 
             android:screenOrientation="portrait"
-            android:parentActivityName=".SearchExistingVisitor"
+            android:parentActivityName="com.emsphere.commando.emspherevms.SearchExistingVisitor"
             android:label=" "/>
+        <activity android:name="com.emsphere.commando.emspherevms.HomeActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.emsphere.commando.emspherevms.Login"
+            android:label=" "/>
+
+        <activity android:name="activitys.Home"
+            android:label=" ">
+            <intent-filter>
+                <action android:name="Home" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="activitys.NotificationList"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.emsphere.commando.emspherevms.HomeActivity"
+            android:label=" "/>
+
+        <!-- Firebase Notifications -->
+        <service android:name="service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name="service.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- ./Firebase Notifications -->
 
     </application>
 

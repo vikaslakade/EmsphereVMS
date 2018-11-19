@@ -44,5 +44,6 @@
         <item><font size="24">other</font></item>
         <item><font size="24"  color="#d3d3d3">please select ID</font></item>
     </string-array>
+    <string name="lication">Locations</string>
 
 </resources>

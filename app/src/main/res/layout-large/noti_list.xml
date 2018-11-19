@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view_noti"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="4dp"
+    android:layout_margin="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="4dp">
+
+
+        <TextView
+            android:text="Radha Bansal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView_pic"
+            android:layout_toRightOf="@+id/imageView_pic"
+            android:layout_toEndOf="@+id/imageView_pic"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/name_textview"
+            android:textSize="26sp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:text="N.Venkatesh"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/represnt_textview"
+            android:layout_toRightOf="@+id/represnt_textview"
+            android:layout_toEndOf="@+id/represnt_textview"
+            android:id="@+id/represnt_name_textview"
+            android:layout_marginLeft="4dp"/>
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            card_view:srcCompat="@drawable/photoicon"
+            android:layout_marginTop="11dp"
+            android:id="@+id/imageView_pic"
+             />
+
+        <TextView
+            android:text="Representing :"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:id="@+id/represnt_textview"
+            android:textColor="#000000"
+            android:layout_below="@+id/name_textview"
+            android:layout_alignLeft="@+id/name_textview"
+            android:layout_alignStart="@+id/name_textview" />
+
+        <TextView
+            android:text="purpose :"
+            android:textSize="22sp"
+            android:layout_marginTop="10dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView_pic"
+            android:id="@+id/purpose_textview"
+            android:textColor="#000000"
+            android:layout_alignLeft="@+id/represnt_textview"
+            android:layout_alignStart="@+id/represnt_textview"
+            android:layout_below="@+id/represnt_textview" />
+
+        <TextView
+            android:text="Interview"
+            android:textSize="20sp"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/represnt_textview"
+            android:id="@+id/purpose_datatextview"
+            android:layout_toRightOf="@+id/represnt_textview"
+            android:layout_alignTop="@+id/purpose_textview" />
+
+        <TextView
+            android:text="Response :"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/response_textview"
+            android:textColor="#000000"
+            android:layout_marginLeft="0dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="145dp"
+          />
+
+        <Button
+               android:text="Allow"
+               android:layout_width="150dp"
+               android:layout_height="50dp"
+               android:id="@+id/button3"
+               android:background="#09AB18"
+               android:padding="2dp"
+               android:textSize="18dp"
+
+               android:layout_marginBottom="2dp"
+               android:layout_toLeftOf="@+id/no_thanksbutton"
+               android:layout_toStartOf="@+id/no_thanksbutton"
+               android:layout_marginRight="31dp"
+               android:layout_marginEnd="31dp"
+                android:layout_alignBottom="@+id/no_thanksbutton" />
+
+        <EditText
+            android:layout_width="400dp"
+            android:layout_height="40dp"
+            android:inputType="textPersonName"
+            android:text=""
+            android:ems="10"
+            android:id="@+id/responce_editText"
+            android:background="@drawable/border"
+            android:padding="8dp"
+            android:layout_alignBaseline="@+id/response_textview"
+            android:layout_alignBottom="@+id/response_textview"
+            android:layout_alignLeft="@+id/purpose_datatextview"
+            android:layout_alignStart="@+id/purpose_datatextview"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="+2345678901"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/phn_textview"
+            android:textColor="@color/colorAccent"
+            android:layout_alignTop="@+id/name_textview"
+            android:layout_toRightOf="@+id/button3"
+            android:layout_toEndOf="@+id/button3" />
+
+        <Button
+            android:text="No Thanks"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:textSize="18dp"
+            android:id="@+id/no_thanksbutton"
+            android:background="#EE0202"
+            android:padding="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/represnt_name_textview"
+            android:layout_toEndOf="@+id/represnt_name_textview" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

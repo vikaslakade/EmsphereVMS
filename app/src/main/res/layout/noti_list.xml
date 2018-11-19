@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view_noti"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="4dp"
+    android:layout_margin="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp">
+
+
+        <TextView
+            android:text="Radha Bansal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView_pic"
+            android:layout_toRightOf="@+id/imageView_pic"
+            android:layout_toEndOf="@+id/imageView_pic"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/name_textview"
+            android:textSize="18sp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:text="N.Venkatesh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/represnt_textview"
+            android:layout_toRightOf="@+id/represnt_textview"
+            android:layout_toEndOf="@+id/represnt_textview"
+            android:id="@+id/represnt_name_textview"
+            android:layout_marginLeft="4dp"/>
+
+        <TextView
+            android:text="+2345678901"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/name_textview"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/phn_textview"
+            android:textColor="@color/colorAccent"
+            android:layout_marginRight="4dp"
+            android:layout_alignLeft="@+id/no_thanksbutton"
+            android:layout_alignStart="@+id/no_thanksbutton" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:srcCompat="@drawable/photoicon"
+            android:layout_marginTop="11dp"
+            android:id="@+id/imageView_pic"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Representing :"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:id="@+id/represnt_textview"
+            android:textColor="#000000"
+            android:layout_below="@+id/name_textview"
+            android:layout_alignLeft="@+id/name_textview"
+            android:layout_alignStart="@+id/name_textview" />
+
+        <TextView
+            android:text="purpose :"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView_pic"
+            android:id="@+id/purpose_textview"
+            android:textColor="#000000"
+            android:layout_alignLeft="@+id/represnt_textview"
+            android:layout_alignStart="@+id/represnt_textview" />
+
+        <TextView
+            android:text="Interview"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/represnt_textview"
+            android:id="@+id/purpose_datatextview"
+            android:layout_toRightOf="@+id/represnt_textview"
+            android:layout_alignTop="@+id/purpose_textview" />
+
+        <TextView
+            android:text="Response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/purpose_textview"
+            android:layout_marginTop="18dp"
+            android:id="@+id/response_textview"
+            android:textColor="#000000"
+            android:layout_alignLeft="@+id/purpose_textview"
+            android:layout_alignStart="@+id/purpose_textview" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text=""
+            android:ems="10"
+            android:id="@+id/responce_editText"
+            android:background="@drawable/border"
+            android:layout_alignTop="@+id/response_textview"
+            android:layout_alignLeft="@+id/purpose_datatextview"
+            android:layout_alignStart="@+id/purpose_datatextview"
+            android:padding="3dp"/>
+
+        <Button
+            android:text="Allow"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="4dp"
+            android:id="@+id/button3"
+            android:background="#09AB18"
+            android:padding="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:text="No Thanks"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="4dp"
+            android:id="@+id/no_thanksbutton"
+            android:background="#EE0202"
+            android:padding="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/represnt_name_textview"
+            android:layout_toEndOf="@+id/represnt_name_textview" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

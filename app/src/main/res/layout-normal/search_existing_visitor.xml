@@ -17,7 +17,7 @@
             android:text="Search Existing Visitor "
             android:layout_gravity="center"
             android:textColor="@color/toolbar"
-            android:textSize="30dp"/>
+            android:textSize="24dp"/>
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
@@ -30,11 +30,11 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="900dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="#81ffffff"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/linear"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
@@ -79,10 +79,10 @@
 
             <Button
             android:text="SEARCH"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-                android:textSize="@dimen/btn_search_textsize"
-            android:onClick="searchvisitor1"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+                android:textSize="22dp"
+            android:onClick="search_visitor1"
             android:layout_marginTop="45dp"
             android:textColor="@color/txtcolor_search"
             android:background="@drawable/btn_search_round"
@@ -95,9 +95,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:fontFamily="@string/font_family"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/textView_mnumber"
                 android:layout_alignBaseline="@+id/editText_mnumbe"
                 android:layout_alignBottom="@+id/editText_mnumbe"
@@ -108,7 +108,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:fontFamily="@string/font_family"
             android:id="@+id/textView_fname"
                 android:layout_marginLeft="10dp"
@@ -117,23 +117,7 @@
                 android:layout_alignLeft="@+id/textView_mnumber"
                 android:layout_alignStart="@+id/textView_mnumber" />
 
-            <EditText
-                android:layout_width="300dp"
-                android:layout_height="60dp"
-                android:inputType="phone"
-
-                android:fontFamily="@string/font_family"
-                android:textSize="24sp"
-                android:paddingLeft="@dimen/start_text"
-                android:textCursorDrawable="@drawable/cursor_red"
-                android:id="@+id/editText_mnumbe"
-                android:background="@drawable/edittextborder"
-                android:layout_marginTop="41dp"
-                android:layout_below="@+id/editText_fname"
-                android:layout_alignLeft="@+id/editText_fname"
-                android:layout_alignStart="@+id/editText_fname" />
-
-           <!-- <ImageView
+            <!-- <ImageView
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 app:srcCompat="@drawable/photoicon"
@@ -147,25 +131,45 @@
                 android:layout_alignLeft="@+id/button2"
                 android:layout_alignStart="@+id/button2" />
 -->
+
             <EditText
-               android:layout_width="300dp"
-               android:layout_height="60dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:inputType="phone"
+
+                android:fontFamily="@string/font_family"
+                android:textSize="20sp"
+                android:paddingLeft="@dimen/start_text"
+                android:textCursorDrawable="@drawable/cursor_red"
+                android:id="@+id/editText_mnumbe"
+                android:background="@drawable/edittextborder"
+                android:layout_marginTop="48dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_below="@+id/editText_fname"
+                android:layout_toRightOf="@+id/textView_fname"
+                android:layout_toEndOf="@+id/textView_fname" />
+
+            <EditText
+               android:layout_width="150dp"
+               android:layout_height="40dp"
 
                 android:inputType="textEmailAddress"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textCursorDrawable="@drawable/cursor_red"
                  android:background="@drawable/edittextborder"
                  android:ems="10"
                 android:paddingLeft="@dimen/start_text"
                 android:id="@+id/editText_fname"
-                android:layout_marginLeft="240dp"
-                android:layout_alignLeft="@+id/textView3"
-                android:layout_alignStart="@+id/textView3"
-                android:layout_alignTop="@+id/textView_fname" />
+                android:layout_alignTop="@+id/textView_fname"
+                android:layout_alignLeft="@+id/editText_mnumbe"
+                android:layout_alignStart="@+id/editText_mnumbe" />
 
         </RelativeLayout>
       </ScrollView>
     </RelativeLayout>
+
+
 
 
 </LinearLayout>

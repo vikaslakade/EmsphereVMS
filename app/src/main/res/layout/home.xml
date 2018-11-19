@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_inner_bg">
+    android:background="@drawable/app_inner_bg"
+    >
+    <!--RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_inner_bg">-->
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -19,76 +25,156 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/VMS"
+            android:gravity="start"
             android:layout_gravity="left"
             android:textColor="@color/toolbar"
-            android:textSize="20sp"/>
+            android:textSize="30sp"/>
+    </android.support.v7.widget.Toolbar>
 
-        </android.support.v7.widget.Toolbar>
 
-    <RelativeLayout
+
+
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/emsphere_logo143"
+        android:id="@+id/imageView"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/toolbar2"
+        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <TextView
             android:text="Welcome..."
             android:textSize="30sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:id="@+id/welcm"
-            android:layout_above="@+id/search_button"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_marginTop="20dp"
+            />
 
-        <ImageButton
-            android:layout_width="wrap_content"
+        <TextView
+
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_reg_user"
+            android:id="@+id/textView_welcomename"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/home_btnnew_border"
             android:id="@+id/search_button"
             android:onClick="OnSearchbuttonclick"
-            android:layout_marginBottom="17dp"
-            android:layout_above="@+id/add_button"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="32dp"
-            android:layout_marginEnd="32dp" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/btn_signup"
+
+            >
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/icon_registed_visitor"
+                android:id="@+id/imageView5"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="Registered Visitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:id="@+id/textView13"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="24dp"
+                android:layout_marginEnd="24dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:layout_marginTop="30dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/home_btnnew_border"
             android:id="@+id/add_button"
-            android:layout_marginBottom="27dp"
             android:onClick="OnAddbuttonclick"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/search_button"
-            android:layout_alignStart="@+id/search_button" />
 
-        <!--<ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/visitormngmt"
-            android:id="@+id/imageView2"
-            android:layout_marginBottom="22dp"
-            android:layout_above="@+id/welcm"
-            android:layout_alignLeft="@+id/imageView"
-            android:layout_alignStart="@+id/imageView" />-->
+            >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/emsphere_logo143"
-            android:id="@+id/imageView"
 
-            android:layout_marginBottom="51dp"
-            android:layout_above="@+id/welcm"
-            android:layout_alignLeft="@+id/search_button"
-            android:layout_alignStart="@+id/search_button"
-            android:layout_marginLeft="49dp"
-            android:layout_marginStart="49dp" />
+            <TextView
+                android:text="Sign Up Now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:id="@+id/textView16"
+                android:layout_marginBottom="6dp"
+                android:layout_below="@+id/textView14"
+                android:layout_alignRight="@+id/textView14"
+                android:layout_alignEnd="@+id/textView14" />
 
-    </RelativeLayout>
+            <Button
+                android:text="Sign Up"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:background="@drawable/btnsignup"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:id="@+id/button"
+                android:layout_toRightOf="@+id/imageView6"
+                android:layout_toEndOf="@+id/imageView6"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_below="@+id/textView16" />
 
-</RelativeLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/icon_new_visitor"
+                android:id="@+id/imageView6"
+                android:layout_marginTop="14dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="New Visitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:id="@+id/textView14"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/button"
+                android:layout_alignStart="@+id/button"
+                android:layout_marginLeft="23dp"
+                android:layout_marginStart="23dp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+    <!--/RelativeLayout>-->
+</LinearLayout>

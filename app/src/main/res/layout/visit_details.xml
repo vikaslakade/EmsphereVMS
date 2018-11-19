@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_inner_bg"
+    android:id="@+id/linear_layout"
     android:weightSum="1">
 
     <android.support.v7.widget.Toolbar
@@ -22,54 +23,63 @@
             android:text="@string/visitentrydetail"
             android:layout_gravity="center"
             android:textColor="@color/toolbar"
-            android:textSize="20sp"/>
-        </android.support.v7.widget.Toolbar>
+            android:textSize="24sp"/>
+    </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#81ffffff"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
+        android:background="@drawable/linear"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_width="330dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
             android:background="@drawable/roundlayout">
 
             <TextView
-                android:text="@string/MobileNo"
-                android:textColor="#3c9c2d"
+                android:text="Representing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/mbn"
-                android:textSize="16sp"
-
+                android:id="@+id/textView_reprents"
+                android:textSize="14sp"
                 android:layout_alignBottom="@+id/imageView3"
-                android:layout_toRightOf="@+id/imageView4"
-                android:layout_toEndOf="@+id/imageView4"
-                android:layout_marginBottom="22dp" />
+                android:layout_alignLeft="@+id/imageView4"
+                android:layout_alignStart="@+id/imageView4"
+                android:layout_below="@+id/mbn" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/sym_action_call"
+                android:id="@+id/imageView4"
+                android:contentDescription="@string/phone_icon"
+                android:layout_below="@+id/textView5"
+                android:layout_alignLeft="@+id/textView5"
+                android:layout_alignStart="@+id/textView5" />
 
             <TextView
-                android:text="@string/Name"
+                android:text="@string/MobileNo"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:id="@+id/textView5"
+                android:id="@+id/mbn"
+                android:textSize="18sp"
 
-                android:layout_above="@+id/mbn"
-                android:layout_centerHorizontal="true" />
+                android:layout_toRightOf="@+id/imageView4"
+                android:layout_toEndOf="@+id/imageView4"
+                android:layout_below="@+id/textView5" />
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:srcCompat="@drawable/photoicon"
                 android:id="@+id/imageView3"
                 android:adjustViewBounds="true"
@@ -80,318 +90,388 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp" />
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp" />
 
-            <ImageView
+            <TextView
+                android:text="@string/Name"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/sym_action_call"
-                android:id="@+id/imageView4"
-                android:contentDescription="@string/phone_icon"
-                android:layout_below="@+id/textView5"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/textView5"
                 android:layout_toRightOf="@+id/imageView3"
-                android:layout_toEndOf="@+id/imageView3"
-                android:layout_marginLeft="18dp"
-                android:layout_marginStart="18dp" />
+                android:layout_alignTop="@+id/imageView3" />
         </RelativeLayout>
 
         <ScrollView
-            android:layout_width="570dp"
-            android:layout_height="700dp"
-            android:fillViewport="true">
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="30dp">
-
+            android:fillViewport="true">
             <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:text="@string/Visit_Purpose"
-                    android:layout_weight="3"
-                    android:id="@+id/textView10" />
-
-                <!--<EditText
-                    android:layout_width="270dp"
-                    android:layout_height="60dp"
-                    android:textSize="@dimen/edit_size"
-                    android:layout_marginLeft="50dp"
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/visit_purpose" />-->
-                <Spinner
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/visit_purpose"
-                    android:layout_weight="3" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:layout_weight="0.82"
-                    android:text="@string/Person_to_meet"
-                    />
-
-                <EditText
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:textSize="16sp"
-                    android:textCursorDrawable="@drawable/cursor_red"
-                    android:paddingLeft="@dimen/start_text"
-
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/persontomeet" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:text="@string/Time"
-
-                    android:layout_weight="3"
-                    />
-
-                <EditText
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:textSize="16sp"
-                    android:textCursorDrawable="@drawable/cursor_red"
-                    android:paddingLeft="@dimen/start_text"
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/editText_time" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:text="@string/Duration"
-
-                    android:layout_weight="3" />
-
-                <EditText
-                    android:inputType="number"
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:textSize="16sp"
-                    android:textCursorDrawable="@drawable/cursor_red"
-                    android:paddingLeft="@dimen/start_text"
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/editText_duration" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:text="@string/Area"
-
-                    android:layout_weight="3"/>
-
-                <EditText
-                    android:inputType="text"
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:textSize="16sp"
-                    android:textCursorDrawable="@drawable/cursor_red"
-                    android:paddingLeft="@dimen/start_text"
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/editText_area"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:text="@string/Material_no.1"
-
-                    android:layout_weight="3" />
-
-                <EditText
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:textSize="16sp"
-                    android:paddingLeft="@dimen/start_text"
-                    android:textCursorDrawable="@drawable/cursor_red"
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/editText_materialno1" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:text="@string/Serial_no.1"
-
-                    android:layout_weight="3"
-                    android:id="@+id/textView9" />
-
-                <EditText
-                    android:inputType="number"
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:textSize="16sp"
-                    android:paddingLeft="@dimen/start_text"
-                    android:textCursorDrawable="@drawable/cursor_red"
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/editText_serialno1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:text="@string/Material_no.2"
-
-                    android:layout_weight="3"
-                    android:id="@+id/textView7" />
-
-                <EditText
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:textSize="16sp"
-                    android:textCursorDrawable="@drawable/cursor_red"
-                    android:paddingLeft="@dimen/start_text"
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/editText_materialno2" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:text="@string/Serial_no.2"
-
-                    android:layout_weight="3"
-                    android:id="@+id/textView6" />
-
-                <EditText
-                    android:inputType="number"
-                    android:layout_width="160dp"
-                    android:layout_height="50dp"
-                    android:textSize="16sp"
-                    android:textCursorDrawable="@drawable/cursor_red"
-                    android:paddingLeft="@dimen/start_text"
-                    android:textColor="@color/black"
-                    android:background="@drawable/edittextborder"
-                    android:id="@+id/editText_serialno2" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="30dp"
-                android:orientation="horizontal"
-                android:layout_marginBottom="120dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
                 >
 
-                <Button
-                    android:text="@string/Submit"
-                    android:layout_width="300dp"
-                    android:layout_height="40dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:textSize="16sp"
+                        android:layout_weight=".8"
+                        android:text="@string/Visit_Purpose"
+                        android:id="@+id/textView10" />
+
+                    <!--<EditText
+                        android:layout_width="270dp"
+                        android:layout_height="60dp"
+                        android:textSize="@dimen/edit_size"
+                        android:layout_marginLeft="50dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/visit_purpose" />-->
+                    <!--<TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.01"/>-->
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="0dp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/visit_purpose"
+                        android:layout_weight="1.2"
+                        android:layout_marginRight="20dp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
+                    android:weightSum="2"
+                    android:id="@+id/meet_to_person"
+                    android:orientation="horizontal">
+
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight=".8"
+                        android:textSize="16sp"
+                        android:text="@string/Person_to_meet"
+                        android:id="@+id/textView_personmeet"
+                        />
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="@dimen/edit_size"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:paddingLeft="@dimen/start_text"
+                        android:hint="Name"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/persontomeet"
+                        android:layout_weight="1.2"
+                        android:layout_marginRight="0dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/validate"
+                    android:weightSum="2">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:id="@+id/textView11"
+                        android:layout_weight=".8" />
+                    <Button
+                        android:text="Validate"
+                        android:id="@+id/button4"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:background="#ffb433"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:onClick="NotificationAuto"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight=".8"
+                        android:textSize="16sp"
+                        android:text="@string/Time"
+                        android:id="@+id/textView_time1"
+
+                        />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="14dp"
+                        android:inputType="text"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:paddingLeft="@dimen/start_text"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/editText_time"
+                        android:layout_weight="1.2"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="16sp"
+                        android:text="@string/Duration"
+                        android:id="@+id/duration"
+                        android:layout_weight="0.8" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="16dp"
+                        android:hint="Duration in hours"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:paddingLeft="@dimen/start_text"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/editText_duration"
+                        android:layout_weight="1.2"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:text="@string/Area"
+                        android:paddingLeft="16sp"
+                        android:layout_weight="0.8"/>
+
+                    <!-- <EditText
+                         android:inputType="text"
+                         android:layout_width="320dp"
+                         android:layout_height="50dp"
+                         android:textSize="@dimen/edit_size"
+                         android:hint="Company Address"
+                         android:textCursorDrawable="@drawable/cursor_red"
+                         android:paddingLeft="@dimen/start_text"
+                         android:textColor="@color/black"
+                         android:background="@drawable/edittextborder"
+                         android:id="@+id/editText_area"
+                         />-->
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="16dp"
+                        android:hint="Company Address"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:paddingLeft="@dimen/start_text"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/editText_area"
+                        android:layout_weight="1.2"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:text="@string/Material_no.1"
+                        android:paddingLeft="16sp"
+                        android:layout_weight="0.8" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="16dp"
+                        android:paddingLeft="@dimen/start_text"
+                        android:inputType="text"
+                        android:hint="Material Name (ex.bag)"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/editText_materialno1"
+                        android:layout_weight="1.2"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:text="@string/Serial_no.1"
+                        android:paddingLeft="16sp"
+                        android:layout_weight="0.8"
+                        android:id="@+id/textView9" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="16dp"
+                        android:paddingLeft="@dimen/start_text"
+                        android:hint="Serial Number"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/editText_serialno1"
+                        android:layout_weight="1.2"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:text="@string/Material_no.2"
+                        android:paddingLeft="16sp"
+                        android:layout_weight=".8"
+                        android:id="@+id/textView7" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="16dp"
+                        android:inputType="text"
+                        android:hint="Material Name(ex.tab)"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:paddingLeft="@dimen/start_text"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/editText_materialno2"
+                        android:layout_weight="1.2"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:text="@string/Serial_no.2"
+                        android:paddingLeft="16sp"
+                        android:layout_weight="0.8"
+                        android:id="@+id/textView6" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:textSize="16dp"
+                        android:hint="Serial Number"
+                        android:textCursorDrawable="@drawable/cursor_red"
+                        android:paddingLeft="@dimen/start_text"
+                        android:textColor="@color/black"
+                        android:background="@drawable/edittextborder"
+                        android:id="@+id/editText_serialno2"
+                        android:layout_weight="1.2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="520dp"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="20dp"
-                    android:textSize="18dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="90dp"
+                    >
 
-                    android:textColor="@color/txtcolor_search"
-                    android:layout_marginStart="20dp"
-                    android:onClick="visitorEntrySubmit"
-                    android:background="@drawable/roundbutton1"
-                    android:id="@+id/visitor_entry_submit" />
+                    <Button
+                        android:text="@string/Submit"
+                        android:layout_width="250dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="20dp"
+
+                        android:textColor="@color/txtcolor_search"
+                        android:layout_marginStart="50dp"
+                        android:onClick="visitorEntrySubmit"
+                        android:background="@drawable/roundbutton1"
+                        android:id="@+id/visitor_entry_submit" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-
         </ScrollView>
     </LinearLayout>
- </LinearLayout>
+
+</LinearLayout>
